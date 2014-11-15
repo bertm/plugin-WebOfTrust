@@ -244,8 +244,7 @@ public final class IdentityInserter extends TransferThread {
 	public void onSuccess(FetchResult result, ClientGetter state, ObjectContainer container) { }
 
 	@Override
-	public void onGeneratedMetadata(Bucket metadata, BaseClientPutter state,
-			ObjectContainer container) {
+	public void onGeneratedMetadata(Bucket metadata, BaseClientPutter state) {
 		metadata.free();
 		throw new UnsupportedOperationException();
 	}
