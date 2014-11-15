@@ -18,6 +18,7 @@ import freenet.client.FetchResult;
 import freenet.client.InsertBlock;
 import freenet.client.InsertContext;
 import freenet.client.InsertException;
+import freenet.client.InsertException.InsertExceptionMode;
 import freenet.client.async.BaseClientPutter;
 import freenet.client.async.ClientGetter;
 import freenet.client.async.ClientPutter;
@@ -211,7 +212,7 @@ public final class IdentityInserter extends TransferThread {
 	public void onFailure(InsertException e, BaseClientPutter state, ObjectContainer container) 
 	{
 		try {
-			if(e.getMode() == InsertException.CANCELLED) {
+			if(e.getMode() == InsertExceptionMode.CANCELLED) {
 				if(logDEBUG) Logger.debug(this, "Insert cancelled: " + state.getURI());
 			}
 			else {
