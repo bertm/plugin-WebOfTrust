@@ -47,6 +47,7 @@ import freenet.support.LRUQueue;
 import freenet.support.Logger;
 import freenet.support.TransferThread;
 import freenet.support.api.Bucket;
+import freenet.support.api.RandomAccessBucket;
 import freenet.support.io.Closer;
 import freenet.support.io.NativeThread;
 
@@ -387,7 +388,7 @@ public final class IntroductionClient extends TransferThread  {
 		
 		assert(!puzzle.wasInserted());
 		
-		Bucket tempB = mTBF.makeBucket(1024); /* TODO: Set to a reasonable value */
+		RandomAccessBucket tempB = mTBF.makeBucket(1024); /* TODO: Set to a reasonable value */
 		OutputStream os = null;
 		
 		try {

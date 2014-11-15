@@ -40,6 +40,7 @@ import freenet.node.RequestStarter;
 import freenet.support.Logger;
 import freenet.support.TransferThread;
 import freenet.support.api.Bucket;
+import freenet.support.api.RandomAccessBucket;
 import freenet.support.io.Closer;
 import freenet.support.io.NativeThread;
 
@@ -258,7 +259,7 @@ public final class IntroductionServer extends TransferThread {
 		
 		assert(!puzzle.wasInserted());
 		
-		Bucket tempB = mTBF.makeBucket(XMLTransformer.MAX_INTRODUCTIONPUZZLE_BYTE_SIZE);
+		RandomAccessBucket tempB = mTBF.makeBucket(XMLTransformer.MAX_INTRODUCTIONPUZZLE_BYTE_SIZE);
 		OutputStream os = null;
 		
 		try {

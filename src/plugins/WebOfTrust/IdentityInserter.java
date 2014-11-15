@@ -28,6 +28,7 @@ import freenet.support.CurrentTimeUTC;
 import freenet.support.Logger;
 import freenet.support.TransferThread;
 import freenet.support.api.Bucket;
+import freenet.support.api.RandomAccessBucket;
 import freenet.support.io.Closer;
 import freenet.support.io.NativeThread;
 
@@ -146,7 +147,7 @@ public final class IdentityInserter extends TransferThread {
 	 * @throws IOException 
 	 */
 	private void insert(OwnIdentity identity) throws IOException {
-		Bucket tempB = mTBF.makeBucket(64 * 1024); /* TODO: Tweak */  
+		RandomAccessBucket tempB = mTBF.makeBucket(64 * 1024); /* TODO: Tweak */  
 		OutputStream os = null;
 
 		try {
