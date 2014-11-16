@@ -26,6 +26,7 @@ public class ConfigurationPage extends WebPageImpl {
 	}
 
 	// TODO: Maybe use or steal freenet.clients.http.ConfigToadlet
+	@Override
 	public void make() {
 		HTMLNode list1 = new HTMLNode("ul");
 		HTMLNode list2 = new HTMLNode("ul");

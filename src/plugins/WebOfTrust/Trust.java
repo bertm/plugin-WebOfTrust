@@ -310,6 +310,7 @@ public final class Trust extends Persistent implements Cloneable {
 		return mTrusterTrustListEdition;
 	}
 	
+	@Override
 	protected void storeWithoutCommit() {
 		try {		
 			// 1 is the maximal depth of all getter functions. You have to adjust this when introducing new member variables.
@@ -328,6 +329,7 @@ public final class Trust extends Persistent implements Cloneable {
 	 * - <b>All</b> attributes are compared <b>except</b> the dates.<br />
 	 * - <b>The involved identities are compared in terms of equals()</b>, the objects do not have to be the same.
 	 */
+	@Override
 	public boolean equals(final Object obj) {
 		if(obj == this)
 			return true;
@@ -360,6 +362,7 @@ public final class Trust extends Persistent implements Cloneable {
 		return true;
 	}
 	
+	@Override
 	public Trust clone() {
 		try {
 			Trust clone = new Trust(mWebOfTrust, getTruster(), getTrustee(), getValue(), getComment());

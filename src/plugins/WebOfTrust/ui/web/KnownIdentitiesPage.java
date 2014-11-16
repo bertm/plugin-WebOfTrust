@@ -57,6 +57,7 @@ public class KnownIdentitiesPage extends WebPageImpl {
 		identitiesPageURI = toadlet.webInterface.getURI() + "/ShowIdentity";
 	}
 
+	@Override
 	public void make() {
 		final boolean addIdentity = request.isPartSet("AddIdentity");
 		

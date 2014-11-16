@@ -32,6 +32,7 @@ public abstract class WebInterfaceToadlet extends Toadlet {
 		return webInterface.getURI() + "/" + pageTitle;
 	}
 
+	@Override
 	public void handleMethodGET(URI uri, HTTPRequest req, ToadletContext ctx) 
 			throws ToadletContextClosedException, IOException, RedirectException {
 		

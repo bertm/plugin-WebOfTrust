@@ -199,6 +199,7 @@ public final class OwnIdentity extends Identity {
 	 * Checks whether two OwnIdentity objects are equal.
 	 * This checks <b>all</b> properties of the identities <b>excluding</b> the {@link Date} properties.
 	 */
+	@Override
 	public final boolean equals(Object obj) {
 		if(!super.equals(obj))
 			return false;
@@ -217,6 +218,7 @@ public final class OwnIdentity extends Identity {
 	/**
 	 * Clones this OwnIdentity. Does <b>not</b> clone the {@link Date} attributes, they are initialized to the current time!
 	 */
+	@Override
 	public final OwnIdentity clone() {
 		try {
 			OwnIdentity clone = new OwnIdentity(mWebOfTrust, getInsertURI(), getNickname(), doesPublishTrustList());
@@ -242,6 +244,7 @@ public final class OwnIdentity extends Identity {
 	 * Stores this identity in the database without committing the transaction
 	 * You must synchronize on the WoT, on the identity and then on the database when using this function!
 	 */
+	@Override
 	protected final void storeWithoutCommit() {
 		try {
 			// 4 is the maximal depth of all getter functions. You have to adjust this when introducing new member variables.
@@ -257,6 +260,7 @@ public final class OwnIdentity extends Identity {
 		super.storeWithoutCommit(); // Not in the try{} so we don't do checkedRollbackAndThrow twice
 	}
 	
+	@Override
 	protected final void deleteWithoutCommit() {
 		try {
 			// 4 is the maximal depth of all getter functions. You have to adjust this when introducing new member variables.
@@ -272,6 +276,7 @@ public final class OwnIdentity extends Identity {
 		super.deleteWithoutCommit(); // Not in the try{} so we don't do checkedRollbackAndThrow twice
 	}
 	
+	@Override
 	public void startupDatabaseIntegrityTest() {
 		checkedActivate(4);
 		super.startupDatabaseIntegrityTest();

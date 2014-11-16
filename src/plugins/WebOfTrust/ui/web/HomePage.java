@@ -28,6 +28,7 @@ public class HomePage extends WebPageImpl {
 		super(toadlet, myRequest, context, _baseL10n);
 	}
 
+	@Override
 	public void make() {
 		makeSummary();
 	}

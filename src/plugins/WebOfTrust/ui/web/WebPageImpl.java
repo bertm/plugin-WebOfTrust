@@ -76,6 +76,7 @@ public abstract class WebPageImpl implements WebPage {
 	 * 
 	 * @return HTML code of the page.
 	 */
+	@Override
 	public String toHTML() {
 		
 		// We add every ContentBoxes

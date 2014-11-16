@@ -68,6 +68,7 @@ public class IntroduceIdentityPage extends WebPageImpl {
 		}
 	}
 
+	@Override
 	public void make() {
 		PluginRespirator _pr = wot.getPluginRespirator();
 		makeInfoBox(_pr);

@@ -47,6 +47,7 @@ public final class FCPInterface implements FredPluginFCP {
         mWoT = myWoT;
     }
 
+    @Override
     public void handle(final PluginReplySender replysender, final SimpleFieldSet params, final Bucket data, final int accesstype) {
 
         try {

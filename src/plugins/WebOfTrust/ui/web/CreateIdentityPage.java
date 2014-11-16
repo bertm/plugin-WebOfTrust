@@ -28,6 +28,7 @@ public class CreateIdentityPage extends WebPageImpl {
 		super(toadlet, myRequest, context, _baseL10n);
 	}
 
+	@Override
 	public void make() {
 		if(request.isPartSet("CreateIdentity")) {
 			try {

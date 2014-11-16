@@ -178,6 +178,7 @@ public class WebOfTrust implements FredPlugin, FredPluginThreadless, FredPluginF
 		Logger.registerClass(WebOfTrust.class);
 	}
 
+	@Override
 	public void runPlugin(PluginRespirator myPR) {
 		try {
 			Logger.normal(this, "Web Of Trust plugin version " + Version.getMarketingVersion() + " starting up...");
@@ -205,14 +206,17 @@ public class WebOfTrust implements FredPlugin, FredPluginThreadless, FredPluginF
 			
 			mRequestClient = new RequestClient() {
 	
+				@Override
 				public boolean persistent() {
 					return false;
 				}
 	
+				@Override
 				public void removeFrom(ObjectContainer container) {
 					throw new UnsupportedOperationException();
 				}
 
+				@Override
 				public boolean realTimeFlag() {
 					return false;
 				}
@@ -1421,6 +1425,7 @@ public class WebOfTrust implements FredPlugin, FredPluginThreadless, FredPluginF
 		}
 	}
 
+	@Override
 	public void terminate() {
 		if(logDEBUG) Logger.debug(this, "WoT plugin terminating ...");
 		
@@ -1489,6 +1494,7 @@ public class WebOfTrust implements FredPlugin, FredPluginThreadless, FredPluginF
 	/**
 	 * Inherited event handler from FredPluginFCP, handled in <code>class FCPInterface</code>.
 	 */
+	@Override
 	public void handle(PluginReplySender replysender, SimpleFieldSet params, Bucket data, int accesstype) {
 		mFCPInterface.handle(replysender, params, data, accesstype);
 	}
@@ -3043,18 +3049,22 @@ public class WebOfTrust implements FredPlugin, FredPluginThreadless, FredPluginF
 		if(logDEBUG) Logger.debug(this, "Removed property '" + property + "' from identity '" + identity.getNickname() + "'");
 	}
 
+	@Override
 	public String getVersion() {
 		return Version.getMarketingVersion();
 	}
 	
+	@Override
 	public long getRealVersion() {
 		return Version.getRealVersion();
 	}
 
+	@Override
 	public String getString(String key) {
 	    return getBaseL10n().getString(key);
 	}
 	
+	@Override
 	public void setLanguage(LANGUAGE newLanguage) {
         WebOfTrust.l10n = new PluginL10n(this, newLanguage);
         if(logDEBUG) Logger.debug(this, "Set LANGUAGE to: " + newLanguage.isoCode);
@@ -3096,6 +3106,7 @@ public class WebOfTrust implements FredPlugin, FredPluginThreadless, FredPluginF
      * This is where our L10n files are stored.
      * @return Path of our L10n files.
      */
+    @Override
     public String getL10nFilesBasePath() {
         return "plugins/WebOfTrust/l10n/";
     }
@@ -3104,6 +3115,7 @@ public class WebOfTrust implements FredPlugin, FredPluginThreadless, FredPluginF
      * This is the mask of our L10n files : lang_en.l10n, lang_de.10n, ...
      * @return Mask of the L10n files.
      */
+    @Override
     public String getL10nFilesMask() {
         return "lang_${lang}.l10n";
     }
@@ -3114,6 +3126,7 @@ public class WebOfTrust implements FredPlugin, FredPluginThreadless, FredPluginF
      * override is not implemented in the node yet.
      * @return Mask of the override L10n files.
      */
+    @Override
     public String getL10nOverrideFilesMask() {
         return "WebOfTrust_lang_${lang}.override.l10n";
     }
@@ -3123,6 +3136,7 @@ public class WebOfTrust implements FredPlugin, FredPluginThreadless, FredPluginF
      * resources inside the plugin's Jar, for example L10n files.
      * @return ClassLoader object
      */
+    @Override
     public ClassLoader getPluginClassLoader() {
         return WebOfTrust.class.getClassLoader();
     }
@@ -3156,6 +3170,7 @@ public class WebOfTrust implements FredPlugin, FredPluginThreadless, FredPluginF
      * Tests whether two WoT are equal.
      * This is a complex operation in terms of execution time and memory usage and only intended for being used in unit tests.
      */
+	@Override
 	public synchronized boolean equals(Object obj) {
 		if(obj == this)
 			return true;

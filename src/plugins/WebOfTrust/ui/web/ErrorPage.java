@@ -23,6 +23,7 @@ public class ErrorPage extends WebPageImpl {
 		Logger.error(this, "Internval error, please report this", mError);
 	}
 
+	@Override
 	public void make() {
 		addErrorBox("Internal error, please report this", mError);
 	}

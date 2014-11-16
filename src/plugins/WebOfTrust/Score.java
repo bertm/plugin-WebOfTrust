@@ -326,6 +326,7 @@ public final class Score extends Persistent implements Cloneable {
 	 * - <b>All</b> attributes are compared <b>except</b> the dates.<br />
 	 * - <b>The involved identities are compared in terms of equals()</b>, the objects do not have to be the same.
 	 */
+	@Override
 	public boolean equals(Object obj) {
 		if(obj == this)
 			return true;
@@ -358,6 +359,7 @@ public final class Score extends Persistent implements Cloneable {
 		return true;
 	}
 
+	@Override
 	public Score clone() {
 		final Score clone = new Score(mWebOfTrust, getTruster(), getTrustee(), getScore(), getRank(), getCapacity());
 		return clone;

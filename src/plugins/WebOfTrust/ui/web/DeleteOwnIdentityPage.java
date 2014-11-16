@@ -26,6 +26,7 @@ public class DeleteOwnIdentityPage extends WebPageImpl {
 		mIdentity = wot.getOwnIdentityByID(request.getPartAsString("id", 128));
 	}
 
+	@Override
 	public void make() {
 		if(request.isPartSet("confirm")) {
 			try {

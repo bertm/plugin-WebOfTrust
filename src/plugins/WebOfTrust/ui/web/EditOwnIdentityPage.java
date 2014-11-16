@@ -29,6 +29,7 @@ public class EditOwnIdentityPage extends WebPageImpl {
 		mIdentity = wot.getOwnIdentityByID(request.getPartAsString("id", 128));
 	}
 	
+	@Override
 	public void make() {
 		synchronized(wot) {
 			if(request.isPartSet("Edit")) {

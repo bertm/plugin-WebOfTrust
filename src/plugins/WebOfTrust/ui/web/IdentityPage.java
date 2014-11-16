@@ -69,6 +69,7 @@ public class IdentityPage extends WebPageImpl {
 	 * 
 	 * @see WebPage#make()
 	 */
+	@Override
 	public void make() {
 		synchronized(wot) {			
 			makeURIBox();

@@ -52,6 +52,7 @@ public class OwnIdentitiesPage extends WebPageImpl {
 		introduceIdentityURI = baseURI+"/IntroduceIdentity";
 	}
 
+	@Override
 	public void make() {
 		if(request.isPartSet("RestoreOwnIdentity")) {
 			try {

@@ -349,6 +349,7 @@ public class IntroductionPuzzle extends Persistent implements Cloneable {
 		mWasInserted = true;
 	}
 	
+	@Override
 	protected void storeWithoutCommit() {
 		try {		
 			// 1 is the maximal depth of all getter functions. You have to adjust this when introducing new member variables.
@@ -363,6 +364,7 @@ public class IntroductionPuzzle extends Persistent implements Cloneable {
 		}
 	}
 	
+	@Override
 	protected void deleteWithoutCommit() {
 		super.deleteWithoutCommit();
 	}
